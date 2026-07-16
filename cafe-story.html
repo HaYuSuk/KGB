@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafe Bar Story - KGB Keramika & Kamen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root { 
+      --bg: #1a1714; 
+      --gold: #c9a96e; 
+      --text: #f5f5f5; 
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Playfair Display', serif; min-height: 100vh; padding: 4rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gold); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.9rem; margin-bottom: 3rem; transition: opacity 0.3s ease; }
+    .back-btn:hover { opacity: 0.8; }
+    .project-header { margin-bottom: 4rem; }
+    .project-tag { font-family: 'Barlow Condensed', sans-serif; color: var(--gold); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .project-title { font-size: 3rem; font-weight: 400; line-height: 1.2; }
+    
+    .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+    .image-item { 
+      position: relative; 
+      overflow: hidden; 
+      aspect-ratio: 4/3; 
+      background: #231f1b; 
+      border: 1px solid rgba(201, 169, 110, 0.1); 
+      cursor: pointer;
+    }
+    .image-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+    .image-item:hover img { transform: scale(1.05); }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 8, 7, 0.95);
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+      border: 2px solid rgba(201, 169, 110, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+    .lightbox.active .lightbox-img {
+      transform: scale(1);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: var(--text);
+      font-size: 3rem;
+      font-weight: 300;
+      cursor: pointer;
+      transition: color 0.3s;
+      user-select: none;
+    }
+    .lightbox-close:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 768px) { 
+      body { padding: 2rem 1rem; } 
+      .project-title { font-size: 2.2rem; } 
+      .image-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+      .lightbox-close { top: 1rem; right: 1.5rem; font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">← Natrag na projekte</a>
+    <header class="project-header">
+      <div class="project-tag">Ugostiteljski objekt</div>
+      <h1 class="project-title">Cafe Bar Story</h1>
+    </header>
+    
+    <main class="image-grid">
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-03 08.01.31.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-03 08.00.42.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-03 08.00.36.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-02 13.58.55.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-02 13.58.43.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-02 13.56.21.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-01 12.25.06.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-01 12.25.01.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-01 12.24.57.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-01 12.24.45.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-01 12.24.41.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-02-01 12.24.34.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-01-27 15.15.07.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-01-27 12.18.01.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-01-27 12.15.15.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-01-22 11.54.29.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-01-22 11.54.16.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-01-22 11.54.12.jpg" alt="Story slika"></div>
+      <div class="image-item"><img src="slike za web/kafe bar story/2021-01-22 11.54.06.jpg" alt="Story slika"></div>
+    </main>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Pregled slike">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const imageItems = document.querySelectorAll('.image-item');
+
+    imageItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== lightboxClose) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+</html>

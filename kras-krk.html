@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kraš Otok Krk - KGB Keramika & Kamen</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a1714;
+      --gold: #c9a96e;
+      --text: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Playfair Display', serif;
+      min-height: 100vh;
+      padding: 4rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.9rem;
+      margin-bottom: 3rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-btn:hover {
+      opacity: 0.8;
+    }
+
+    .project-header {
+      margin-bottom: 4rem;
+    }
+
+    .project-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    /* Grid sa slikama */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .image-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #231f1b;
+      border: 1px solid rgba(201, 169, 110, 0.1);
+      cursor: pointer;
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .image-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Stilovi za Lightbox (Kliknuta slika preko cijelog ekrana) */
+    .lightbox {
+      display: none;
+      /* Sakriveno po defaultu */
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 8, 7, 0.95);
+      /* Tamna elegantna pozadina */
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+      border: 2px solid rgba(201, 169, 110, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox.active .lightbox-img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: var(--text);
+      font-size: 3rem;
+      font-weight: 300;
+      cursor: pointer;
+      transition: color 0.3s;
+      user-select: none;
+    }
+
+    .lightbox-close:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 2rem 1rem;
+      }
+
+      .project-title {
+        font-size: 2.2rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .lightbox-close {
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">← Natrag na projekte</a>
+    <header class="project-header">
+      <div class="project-tag">Poslovni prostor</div>
+      <h1 class="project-title">Kraš Otok Krk</h1>
+    </header>
+
+    <main class="image-grid">
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0009.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0007.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0008.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0004.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0005.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0003.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0001.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220618-WA0000.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0009.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0008.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0007.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0006.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0005.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0004.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0003.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220617-WA0002.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220617_062105.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220617_062053.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220617_062044.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220617_062018.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220609_194916.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220604_104347.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220604_081504.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_170251.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_170246.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_170242.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_170237.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_164922.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_164907.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_164847.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_164850.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_164843.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220602_164840.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220521_154559.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220521_154528.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220521_154525.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220514_114315.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220513_121047.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220512_125125.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220512_125121.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220510_161848.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220510_142322.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220510_142312.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220509_152636.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220506_185443.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220506_185439.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220506_185425.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220506_185422.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220505_132628.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220505_132610.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220505_081134.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220505_081120.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220505_081109.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220504_154450.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220504_132552.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220429_102428.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220429_085334.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220428_081148.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220428_081143.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220428_081125.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220428_081116.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220428_081107.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220428_081103.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220428_081056.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220426_141253.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220426_141226.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220426_095649.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220424_144024.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220424_144020.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220424_144011.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220424_144002.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_153537.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_153508.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_153452.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_140509.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_140503.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_140442.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_140416.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_140355.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_140334.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220420_140330.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220414_144018.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220414_144012.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220414_072524.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220414_072501.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220414_071945.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220414_071929.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220410_113406.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220410_103031.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220331_135843.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220331_135833.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220330_142622.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220330_142612.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220329_120922.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220329_120918.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220327_141955.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220327_141952.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220326-WA0007.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG-20220326-WA0006.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220325_141504.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220324_143138.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220324_143136.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220324_143121.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220324_143118.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220324_143115.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220323_144842.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220323_080825.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220322_092115.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk/IMG_20220322_092112.jpg" alt="Kraš Krk"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230606_124706.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230605_142223.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230605_142204.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230605_142150.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230605_142146.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230605_142140.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230605_142136.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230605_142129.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230523-WA0000.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230520-WA0013.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230520-WA0012.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230520-WA0011.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230520-WA0010.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230520-WA0008.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230520-WA0006.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20230520-WA0004.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230516_143506.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230516_143445.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230513_160016.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230512_121329.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_122948.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_122937.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_122922.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_122919.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_121448.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_121443.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_121439.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_121326.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_121322.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_121315.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_121310.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_115628.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_115622.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_115558.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_111112.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_103212.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_103206.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_103202.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_103142.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230425_103136.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230329_151414.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230329_151315.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230329_151249.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230328_132217.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230328_132211.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230328_132156.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230328_132153.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230325_142548.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230324_154357.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230324_154349.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230324_154343.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230323_152145.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230323_152127.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230323_152122.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230307_150422.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230222_132743.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230216_144551.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20230212_094006.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20221222_083228.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20221222_083118.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20221222_083107.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20221215_090400.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20221206_150538.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20221207_151824.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20221207_151826.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20220810-WA0022.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20220810-WA0024.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG-20220810-WA0026.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20220810_160857.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20220810_160900.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20220810_160905.jpg" alt="Kraš Krk 2"></div>
+      <div class="image-item"><img src="slike za web/Krk 2/IMG_20220810_160917.jpg" alt="Kraš Krk 2"></div>
+    </main>
+  </div>
+
+  <!-- LIGHTBOX HTML (Modal za prikaz slike preko cijelog ekrana) -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Pregled slike">
+  </div>
+
+  <!-- JAVASCRIPT ZA LIGHTBOX -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const imageItems = document.querySelectorAll('.image-item');
+
+    imageItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== lightboxClose) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+
+</html>
